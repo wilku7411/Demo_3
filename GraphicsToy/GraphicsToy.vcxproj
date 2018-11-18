@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{4A08FA93-4062-4F82-8774-D94D053E5D5C}</ProjectGuid>
+    <RootNamespace>GraphicsToy</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)GraphicsToy\Dependencies\third_party;$(SolutionDir)GraphicsToy\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>assimp-vc140-mt.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)GraphicsToy\Dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Dependencies\lib\*.dll" "$(TargetDir)" /c /y /d /r</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy needed .dll files</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)GraphicsToy\Dependencies\third_party;$(SolutionDir)GraphicsToy\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>assimp-vc140-mt.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)GraphicsToy\Dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Dependencies\lib\*.dll" "$(TargetDir)" /c /y /d /r</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy needed .dll files</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Dependencies\third_party\imgui.cpp" />
+    <ClCompile Include="Dependencies\third_party\imgui_demo.cpp" />
+    <ClCompile Include="Dependencies\third_party\imgui_draw.cpp" />
+    <ClCompile Include="Dependencies\third_party\imgui_impl_glfw_gl3.cpp" />
+    <ClCompile Include="source\CTimer.cpp" />
+    <ClCompile Include="source\graphics\RendererVariables.cpp" />
+    <ClCompile Include="source\graphics\Material.cpp" />
+    <ClCompile Include="source\graphics\MaterialUniformUpdateWatcher.cpp" />
+    <ClCompile Include="source\managers\MaterialManager.cpp" />
+    <ClCompile Include="source\MovableCamera.cpp" />
+    <ClCompile Include="source\objects\PlayerPortrait.cpp" />
+    <ClCompile Include="source\objects\Plane.cpp" />
+    <ClCompile Include="source\objects\TerrainGrid.cpp" />
+    <ClCompile Include="source\Player.cpp" />
+    <ClCompile Include="source\glad.c" />
+    <ClCompile Include="source\graphics\Light.cpp" />
+    <ClCompile Include="source\graphics\Mesh.cpp" />
+    <ClCompile Include="source\graphics\Model.cpp" />
+    <ClCompile Include="source\graphics\OriginGizmo.cpp" />
+    <ClCompile Include="source\graphics\Shader.cpp" />
+    <ClCompile Include="source\IO\Window.cpp" />
+    <ClCompile Include="source\graphics\Texture.cpp" />
+    <ClCompile Include="source\Source.cpp" />
+    <ClCompile Include="source\vao.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dependencies\third_party\imconfig.h" />
+    <ClInclude Include="Dependencies\third_party\imgui.h" />
+    <ClInclude Include="Dependencies\third_party\imgui_impl_glfw_gl3.h" />
+    <ClInclude Include="Dependencies\third_party\imgui_internal.h" />
+    <ClInclude Include="Dependencies\third_party\stb_rect_pack.h" />
+    <ClInclude Include="Dependencies\third_party\stb_textedit.h" />
+    <ClInclude Include="Dependencies\third_party\stb_truetype.h" />
+    <ClInclude Include="source\CTimer.h" />
+    <ClInclude Include="source\graphics\Material.h" />
+    <ClInclude Include="source\graphics\MaterialUniformUpdateWatcher.h" />
+    <ClInclude Include="source\graphics\RendererVariables.h" />
+    <ClInclude Include="source\IO\File.h" />
+    <ClInclude Include="source\managers\MaterialManager.h" />
+    <ClInclude Include="source\MovableCamera.h" />
+    <ClInclude Include="source\objects\PlayerPortrait.h" />
+    <ClInclude Include="source\objects\Plane.h" />
+    <ClInclude Include="source\MaterialsInfo.h" />
+    <ClInclude Include="source\objects\TerrainGrid.h" />
+    <ClInclude Include="source\Player.h" />
+    <ClInclude Include="Dependencies\include\glad\glad.h" />
+    <ClInclude Include="source\graphics\Light.h" />
+    <ClInclude Include="source\graphics\Model.h" />
+    <ClInclude Include="source\graphics\OriginGizmo.h" />
+    <ClInclude Include="source\graphics\Shader.h" />
+    <ClInclude Include="source\graphics\Mesh.h" />
+    <ClInclude Include="source\IO\Window.h" />
+    <ClInclude Include="source\graphics\Primitives.h" />
+    <ClInclude Include="source\UniformChangesEvent.h" />
+    <ClInclude Include="source\vao.h" />
+    <ClInclude Include="source\graphics\Texture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\basicF.shader" />
+    <None Include="resources\shaders\basicV.shader" />
+    <None Include="source\resources\shaders\adsFS.shader" />
+    <None Include="source\resources\shaders\adsVS.shader" />
+    <None Include="source\resources\shaders\asteroids_projectileFS.shader" />
+    <None Include="source\resources\shaders\asteroids_projectileVS.shader" />
+    <None Include="source\resources\shaders\basic.frag" />
+    <None Include="source\resources\shaders\basic.vert" />
+    <None Include="source\resources\shaders\defaultFS.shader" />
+    <None Include="source\resources\shaders\defaultVS.shader" />
+    <None Include="source\resources\shaders\linesVS.shader" />
+    <None Include="source\resources\shaders\linesFS.shader" />
+    <None Include="source\resources\shaders\pointLightFS.shader" />
+    <None Include="source\resources\shaders\pointLightVS.shader" />
+    <None Include="source\resources\shaders\lines.frag" />
+    <None Include="source\resources\shaders\lines.vert" />
+    <None Include="source\resources\shaders\basicMaterialFS.shader" />
+    <None Include="source\resources\shaders\basicMaterialVS.shader" />
+    <None Include="source\resources\shaders\mmFS.shader" />
+    <None Include="source\resources\shaders\mmVS.shader" />
+    <None Include="source\resources\shaders\terrainFS.shader" />
+    <None Include="source\resources\shaders\terrainVS.shader" />
+    <None Include="source\resources\shaders\textureFS.shader" />
+    <None Include="source\resources\shaders\textureVS.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="source\resources\shaders\_materials_data.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="source\resources\textures\bg.png" />
+    <Image Include="source\resources\textures\pepe.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
